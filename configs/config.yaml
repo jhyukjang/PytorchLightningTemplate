@@ -4,10 +4,10 @@
 defaults:
   - _self_
   - trainer: default.yaml
-  - model: mnist_model.yaml
-  - datamodule: mnist_datamodule.yaml
+  - model: model.yaml
+  - datamodule: datamodule.yaml
   - callbacks: default.yaml
-  - logger: null # set logger here or use command line (e.g. `python run.py logger=wandb`)
+  - logger: tensorboard.yaml # set logger here or use command line (e.g. `python run.py logger=wandb`)
 
   - mode: default.yaml
 
