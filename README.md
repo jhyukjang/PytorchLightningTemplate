@@ -1,3 +1,47 @@
+# Custom Setting
+
+## Edit **src/datamodules/datamodule.py**
+https://pytorch-lightning.readthedocs.io/en/latest/extensions/datamodules.html
+
+## Edit **src/models/model.py**
+https://pytorch-lightning.readthedocs.io/en/latest/starter/converting.html
+
+
+## Edit **configs/experiment/experiment_name.yaml** for custom settings:
+```
+defaults:
+    - override /trainer: default.yaml
+    - override /model: model.yaml
+    - override /datamodule: datamodule.yaml
+    - override /callbacks: default.yaml
+    - override /logger: tensorboard.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+seed: 12345
+
+trainer:
+    max_epochs: 100
+    gradient_clip_val: 0.5
+
+model:
+    lr: 0.005
+
+datamodule:
+    batch_size: 64
+```
+
+Run with experiment setting
+```
+python run.py experiment={experiment_name}
+```
+
+
+***
+
+
+
 <div align="center">
 
 # Lightning-Hydra-Template
