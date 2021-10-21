@@ -59,8 +59,8 @@ class DataModule(LightningDataModule):
     def prepare_data(self):
         """Download data if needed. This method is called only from a single GPU.
         Do not use it to assign state (self.x = y)."""
-        MNIST(self.data_dir, train=True, download=True)
-        MNIST(self.data_dir, train=False, download=True)
+        # MNIST(self.data_dir, train=True, download=True)
+        # MNIST(self.data_dir, train=False, download=True)
 
     def setup(self, stage: Optional[str] = None):
         """Load data. Set variables: `self.data_train`, `self.data_val`, `self.data_test`.
@@ -73,6 +73,13 @@ class DataModule(LightningDataModule):
             self.data_train, self.data_val, self.data_test = random_split(
                 dataset, self.train_val_test_split, generator=torch.Generator().manual_seed(42)
             )
+
+        """
+        self.data_train = 
+        self.data_val = 
+        self.data_test = 
+        """
+
 
     def train_dataloader(self):
         return DataLoader(
